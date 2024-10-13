@@ -1,6 +1,7 @@
 package com.david.glez.firebasebasicnotifications
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -18,6 +19,18 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        //get extras whe the notification is clicked
+        val extras = intent.extras
+        if (extras != null) {
+            val example1 = extras.getString("example1")
+            val example2 = extras.getString("example2")
+            val example3 = extras.getString("example3")
+            Log.i("Message", "$example1")
+            Log.i("Message", "$example2")
+            Log.i("Message", "$example3")
+
+        }
         enableEdgeToEdge()
         setContent {
             FirebaseBasicNotificationsTheme {
